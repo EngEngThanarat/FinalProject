@@ -34,7 +34,6 @@ public class Login extends javax.swing.JDialog {
         username = new javax.swing.JTextField();
         password = new javax.swing.JPasswordField();
         Enter = new javax.swing.JButton();
-        Register = new javax.swing.JButton();
         Close = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -72,17 +71,7 @@ public class Login extends javax.swing.JDialog {
             }
         });
         getContentPane().add(Enter);
-        Enter.setBounds(303, 263, 90, 30);
-
-        Register.setText("Register");
-        Register.setMaximumSize(new java.awt.Dimension(53, 23));
-        Register.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RegisterActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Register);
-        Register.setBounds(150, 260, 90, 30);
+        Enter.setBounds(303, 253, 90, 40);
 
         Close.setText("Close");
         Close.addActionListener(new java.awt.event.ActionListener() {
@@ -91,7 +80,7 @@ public class Login extends javax.swing.JDialog {
             }
         });
         getContentPane().add(Close);
-        Close.setBounds(10, 263, 70, 30);
+        Close.setBounds(10, 253, 80, 40);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -116,12 +105,6 @@ public class Login extends javax.swing.JDialog {
             }else JOptionPane.showMessageDialog(this,"No have Account");
         }catch(Exception e){}
     }//GEN-LAST:event_EnterActionPerformed
-
-    private void RegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterActionPerformed
-        this.dispose();
-        Register rg = new Register(null,false);
-        rg.setVisible(true);
-    }//GEN-LAST:event_RegisterActionPerformed
 
     private void CloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseActionPerformed
         this.dispose();
@@ -172,7 +155,6 @@ public class Login extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Close;
     private javax.swing.JButton Enter;
-    private javax.swing.JButton Register;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPasswordField password;
     private javax.swing.JTextField username;
