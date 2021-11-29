@@ -38,6 +38,8 @@ public class Login extends javax.swing.JDialog {
         Close = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(420, 380));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -73,10 +75,21 @@ public class Login extends javax.swing.JDialog {
         Enter.setBounds(303, 263, 90, 30);
 
         Register.setText("Register");
+        Register.setMaximumSize(new java.awt.Dimension(53, 23));
+        Register.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegisterActionPerformed(evt);
+            }
+        });
         getContentPane().add(Register);
         Register.setBounds(150, 260, 90, 30);
 
         Close.setText("Close");
+        Close.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CloseActionPerformed(evt);
+            }
+        });
         getContentPane().add(Close);
         Close.setBounds(10, 263, 70, 30);
 
@@ -103,6 +116,16 @@ public class Login extends javax.swing.JDialog {
             }else JOptionPane.showMessageDialog(this,"No have Account");
         }catch(Exception e){}
     }//GEN-LAST:event_EnterActionPerformed
+
+    private void RegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterActionPerformed
+        this.dispose();
+        Register rg = new Register(null,false);
+        rg.setVisible(true);
+    }//GEN-LAST:event_RegisterActionPerformed
+
+    private void CloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_CloseActionPerformed
 
     /**
      * @param args the command line arguments
