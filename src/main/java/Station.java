@@ -32,11 +32,11 @@ public class Station extends javax.swing.JFrame {
         Station = new javax.swing.JLabel();
         back = new javax.swing.JButton();
         origin = new javax.swing.JComboBox<>();
-        destination = new javax.swing.JComboBox<>();
         time = new javax.swing.JLabel();
-        people = new javax.swing.JLabel();
         money = new javax.swing.JLabel();
         generate = new javax.swing.JButton();
+        destination = new javax.swing.JComboBox<>();
+        people = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(430, 400));
@@ -47,7 +47,7 @@ public class Station extends javax.swing.JFrame {
         Station.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Station.setText("Station");
         getContentPane().add(Station);
-        Station.setBounds(107, 32, 175, 42);
+        Station.setBounds(120, 30, 175, 42);
 
         back.setText("Back");
         back.addActionListener(new java.awt.event.ActionListener() {
@@ -65,21 +65,12 @@ public class Station extends javax.swing.JFrame {
             }
         });
         getContentPane().add(origin);
-        origin.setBounds(61, 92, 134, 44);
-
-        destination.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Taling Chan", "Bang Bamru", "Bang Son", "Bang Sue Grand Station", "Chatuchak", "Wat Samian Nari", "Bang Khen", "Thung Song Hong", "Lak Si", "Kan Khaha", "Don Mueang", "Lak Hok", "Rangsit" }));
-        getContentPane().add(destination);
-        destination.setBounds(213, 92, 134, 44);
+        origin.setBounds(70, 90, 134, 40);
 
         time.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         time.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(time);
         time.setBounds(130, 260, 150, 30);
-
-        people.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        people.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(people);
-        people.setBounds(130, 190, 150, 30);
 
         money.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         money.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -93,7 +84,25 @@ public class Station extends javax.swing.JFrame {
             }
         });
         getContentPane().add(generate);
-        generate.setBounds(160, 150, 90, 23);
+        generate.setBounds(160, 190, 90, 23);
+
+        destination.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Taling Chan", "Bang Bamru", "Bang Son", "Bang Sue Grand Station", "Chatuchak", "Wat Samian Nari", "Bang Khen", "Thung Song Hong", "Lak Si", "Kan Khaha", "Don Mueang", "Lak Hok", "Rangsit" }));
+        destination.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                destinationActionPerformed(evt);
+            }
+        });
+        getContentPane().add(destination);
+        destination.setBounds(220, 90, 140, 40);
+
+        people.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        people.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                peopleActionPerformed(evt);
+            }
+        });
+        getContentPane().add(people);
+        people.setBounds(130, 150, 150, 30);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -105,12 +114,33 @@ public class Station extends javax.swing.JFrame {
     }//GEN-LAST:event_backActionPerformed
 
     private void originActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_originActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_originActionPerformed
 
     private void generateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateActionPerformed
-       // TODO add your handling code here:
+        String selectedOrigin = origin.getSelectedItem().toString();
+        String selectedDestination = destination.getSelectedItem().toString();
+        
+        double temp=0;
+        if (selectedOrigin.indexOf(1)==selectedDestination.indexOf(1)){
+            money.setText("12 BATH");
+        }if (selectedOrigin.indexOf(1)==selectedDestination.indexOf(2)){
+            money.setText("18 BATH");
+        }if (selectedOrigin.indexOf(1)==selectedDestination.indexOf(3)){
+            money.setText("29 BATH");
+        }       
+        
+        
+        
     }//GEN-LAST:event_generateActionPerformed
+
+    private void destinationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_destinationActionPerformed
+
+    }//GEN-LAST:event_destinationActionPerformed
+
+    private void peopleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_peopleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_peopleActionPerformed
 
     /**
      * @param args the command line arguments
@@ -154,7 +184,7 @@ public class Station extends javax.swing.JFrame {
     private javax.swing.JButton generate;
     private javax.swing.JLabel money;
     private javax.swing.JComboBox<String> origin;
-    private javax.swing.JLabel people;
+    private javax.swing.JTextField people;
     private javax.swing.JLabel time;
     // End of variables declaration//GEN-END:variables
 }
