@@ -101,7 +101,6 @@ public class PayMoney extends javax.swing.JFrame {
     }//GEN-LAST:event_MoneyActionPerformed
 
     private void RegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterActionPerformed
-        this.dispose();
         Register rg = new Register(null,false);
         rg.setVisible(true);
     }//GEN-LAST:event_RegisterActionPerformed

@@ -56,6 +56,7 @@ public class Login extends javax.swing.JDialog {
         getContentPane().add(username);
         username.setBounds(80, 100, 250, 40);
 
+        password.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passwordActionPerformed(evt);
@@ -98,12 +99,20 @@ public class Login extends javax.swing.JDialog {
         char[] temp = password.getPassword();
         String pw = String.valueOf(temp);
         String sql = String.format("SELECT * FROM Account WHERE ac_id = '%s' AND ac_password = '%s'",id,pw) ;
+        boolean a ;
         try{ ConnectionDB cdb = new ConnectionDB();
             ResultSet rs = cdb.get_resultset(sql); 
-            if(rs.next()){
+            rs.next();
+            a=true;
+        }catch(Exception e){a=false;}
+        if(a){
                 JOptionPane.showMessageDialog(this,"You are Complete");
+                this.dispose();
+                Station stt = new Station();
+                stt.setVisible(true);
             }else JOptionPane.showMessageDialog(this,"No have Account");
-        }catch(Exception e){}
+        
+        
     }//GEN-LAST:event_EnterActionPerformed
 
     private void CloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseActionPerformed

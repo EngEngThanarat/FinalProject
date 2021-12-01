@@ -34,9 +34,10 @@ public class Station extends javax.swing.JFrame {
         origin = new javax.swing.JComboBox<>();
         time = new javax.swing.JLabel();
         money = new javax.swing.JLabel();
-        generate = new javax.swing.JButton();
         destination = new javax.swing.JComboBox<>();
         people = new javax.swing.JTextField();
+        calcurate = new javax.swing.JButton();
+        next = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(430, 400));
@@ -45,9 +46,9 @@ public class Station extends javax.swing.JFrame {
 
         Station.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         Station.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Station.setText("Station");
+        Station.setText("BANG SUE GRAND STATION");
         getContentPane().add(Station);
-        Station.setBounds(120, 30, 175, 42);
+        Station.setBounds(50, 30, 330, 42);
 
         back.setText("Back");
         back.addActionListener(new java.awt.event.ActionListener() {
@@ -56,44 +57,35 @@ public class Station extends javax.swing.JFrame {
             }
         });
         getContentPane().add(back);
-        back.setBounds(10, 299, 84, 32);
+        back.setBounds(20, 300, 84, 32);
 
-        origin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Taling Chan", "Bang Bamru", "Bang Son", "Bang Sue Grand Station", "Chatuchak", "Wat Samian Nari", "Bang Khen", "Thung Song Hong", "Lak Si", "Kan Khaha", "Don Mueang", "Lak Hok", "Rangsit" }));
+        origin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bang Sue Grand Station" }));
         origin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 originActionPerformed(evt);
             }
         });
         getContentPane().add(origin);
-        origin.setBounds(70, 90, 134, 40);
+        origin.setBounds(54, 90, 150, 40);
 
         time.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         time.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(time);
-        time.setBounds(130, 260, 150, 30);
+        time.setBounds(140, 260, 150, 30);
 
         money.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         money.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(money);
-        money.setBounds(130, 230, 150, 30);
+        money.setBounds(140, 220, 150, 30);
 
-        generate.setText("generate");
-        generate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                generateActionPerformed(evt);
-            }
-        });
-        getContentPane().add(generate);
-        generate.setBounds(160, 190, 90, 23);
-
-        destination.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Taling Chan", "Bang Bamru", "Bang Son", "Bang Sue Grand Station", "Chatuchak", "Wat Samian Nari", "Bang Khen", "Thung Song Hong", "Lak Si", "Kan Khaha", "Don Mueang", "Lak Hok", "Rangsit" }));
+        destination.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Taling Chan", "Bang Bamru", "Bang Son", "Chatuchak", "Wat Samian Nari", "Bang Khen", "Thung Song Hong", "Lak Si", "Kan Khaha", "Don Mueang", "Lak Hok", "Rangsit" }));
         destination.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 destinationActionPerformed(evt);
             }
         });
         getContentPane().add(destination);
-        destination.setBounds(220, 90, 140, 40);
+        destination.setBounds(220, 90, 150, 40);
 
         people.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         people.addActionListener(new java.awt.event.ActionListener() {
@@ -102,7 +94,25 @@ public class Station extends javax.swing.JFrame {
             }
         });
         getContentPane().add(people);
-        people.setBounds(130, 150, 150, 30);
+        people.setBounds(140, 150, 150, 30);
+
+        calcurate.setText("Calcurate");
+        calcurate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calcurateActionPerformed(evt);
+            }
+        });
+        getContentPane().add(calcurate);
+        calcurate.setBounds(160, 190, 100, 23);
+
+        next.setText("Next");
+        next.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextActionPerformed(evt);
+            }
+        });
+        getContentPane().add(next);
+        next.setBounds(300, 300, 80, 30);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -113,27 +123,6 @@ public class Station extends javax.swing.JFrame {
         PayM.setVisible(true);
     }//GEN-LAST:event_backActionPerformed
 
-    private void originActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_originActionPerformed
-        
-    }//GEN-LAST:event_originActionPerformed
-
-    private void generateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateActionPerformed
-        String selectedOrigin = origin.getSelectedItem().toString();
-        String selectedDestination = destination.getSelectedItem().toString();
-        
-        double temp=0;
-        if (selectedOrigin.indexOf(1)==selectedDestination.indexOf(1)){
-            money.setText("12 BATH");
-        }if (selectedOrigin.indexOf(1)==selectedDestination.indexOf(2)){
-            money.setText("18 BATH");
-        }if (selectedOrigin.indexOf(1)==selectedDestination.indexOf(3)){
-            money.setText("29 BATH");
-        }       
-        
-        
-        
-    }//GEN-LAST:event_generateActionPerformed
-
     private void destinationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_destinationActionPerformed
 
     }//GEN-LAST:event_destinationActionPerformed
@@ -141,6 +130,96 @@ public class Station extends javax.swing.JFrame {
     private void peopleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_peopleActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_peopleActionPerformed
+
+    private void calcurateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcurateActionPerformed
+        int pp = Integer.parseInt(people.getText());
+        
+        switch(destination.getSelectedItem().toString()){
+            case "Taling Chan" : { 
+                int result = 35*pp ;
+                money.setText(String.valueOf(result)+" Bath") ;
+                time.setText("14 minute");
+                break ;}
+            case "Bang Bamru" : { 
+                int result = 29*pp ;
+                money.setText(String.valueOf(result+" Bath")) ;
+                time.setText("10 Minute");
+                break ;}
+            case "Bang Son" : { 
+                int result = 18*pp ;
+                money.setText(String.valueOf(result+" Bath")) ;
+                time.setText("3 Minute");
+                break ;}
+            case "Chatuchak" : { 
+                int result = 16*pp ;
+                money.setText(String.valueOf(result+" Bath")) ;
+                time.setText("3 Minute");
+                break ;}
+            case "Wat Samian Nari" : { 
+                int result = 19*pp ;
+                money.setText(String.valueOf(result+" Bath")) ;
+                time.setText("5 Minute");
+                break ;}
+            case "Bang Khen" : { 
+                int result = 20*pp ;
+                money.setText(String.valueOf(result+" Bath")) ;
+                time.setText("7 Minute");
+                break ;}
+            case "Thung Song Hong" : { 
+                int result = 23*pp ;
+                money.setText(String.valueOf(result+" Bath")) ;
+                time.setText("9 Minute");
+                break ;}
+            case "Lak Si" : { 
+                int result = 27*pp ;
+                money.setText(String.valueOf(result+" Bath")) ;
+                time.setText("12 Minute");
+                break ;}
+            case "Kan Khaha" : { 
+                int result = 30*pp ;
+                money.setText(String.valueOf(result+" Bath")) ;
+                time.setText("14 Minute");
+                break ;}
+            case "Don Mueang" : { 
+                int result = 33*pp ;
+                money.setText(String.valueOf(result+" Bath")) ;
+                time.setText("16 Minute");
+                break ;}
+            case "Lak Hok" : { 
+                int result = 42*pp ;
+                money.setText(String.valueOf(result+" Bath")) ;
+                time.setText("20 Minute");
+                break ;}
+            case "Rangsit" : { 
+                int result = 42*pp ;
+                money.setText(String.valueOf(result+" Bath")) ;
+                time.setText("23 Minute");
+                break ;}
+        }
+    }//GEN-LAST:event_calcurateActionPerformed
+
+    private void originActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_originActionPerformed
+
+    }//GEN-LAST:event_originActionPerformed
+
+    private String temp1 = null,temp2=null,temp3=null,temp4=null;
+    public static String temp5 = null ,temp6 = null,temp7 = null,temp8 = null ;
+    
+    private void nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextActionPerformed
+        temp1 = String.valueOf(origin.getSelectedItem());
+        temp2 = String.valueOf(destination.getSelectedItem());
+        temp3 = String.valueOf(people.getText());
+        temp4 = String.valueOf(money.getText());
+        
+        temp5 = temp1;
+        temp6 = temp2;
+        temp7 = temp3;
+        temp8 = temp4;
+        
+        this.dispose();
+        Receipt rc = new Receipt();
+        rc.setVisible(true);
+    }//GEN-LAST:event_nextActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,9 +259,10 @@ public class Station extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Station;
     private javax.swing.JButton back;
+    private javax.swing.JButton calcurate;
     private javax.swing.JComboBox<String> destination;
-    private javax.swing.JButton generate;
     private javax.swing.JLabel money;
+    private javax.swing.JButton next;
     private javax.swing.JComboBox<String> origin;
     private javax.swing.JTextField people;
     private javax.swing.JLabel time;

@@ -5,16 +5,16 @@ public class ConnectionDB {
     private Connection cd = null ;
     private Statement st = null ;
     private ResultSet rs = null ;
-    private String url = "jdbc:sqlite:C:\\Users\\emmer\\Documents\\NetBeansProjects\\FinalProject\\DB.db" ;
+    private String url = "jdbc:sqlite:C:\\Users\\user\\OneDrive\\Documents\\NetBeansProjects\\FinalProject\\DB.db" ;
     
     public void connect()throws SQLException {
         try{ cd = DriverManager.getConnection(url);
-        }catch(Exception e){ JOptionPane.showMessageDialog(null,"Error");}
+        }catch(Exception e){ JOptionPane.showMessageDialog(null,"Error"+e);}
     }
     
     public void disconnect()throws SQLException{
         try{ cd.close();
-        }catch(Exception e){ JOptionPane.showMessageDialog(null,"Close");}
+        }catch(Exception e){ JOptionPane.showMessageDialog(null,"Close"+e);}
     }
     
     public boolean execute(String sql)throws SQLException {
