@@ -38,17 +38,15 @@ public class Station extends javax.swing.JFrame {
         people = new javax.swing.JTextField();
         calcurate = new javax.swing.JButton();
         next = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(430, 400));
         setResizable(false);
-        getContentPane().setLayout(null);
 
         Station.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         Station.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Station.setText("BANG SUE GRAND STATION");
-        getContentPane().add(Station);
-        Station.setBounds(50, 30, 330, 42);
 
         back.setText("Back");
         back.addActionListener(new java.awt.event.ActionListener() {
@@ -56,8 +54,6 @@ public class Station extends javax.swing.JFrame {
                 backActionPerformed(evt);
             }
         });
-        getContentPane().add(back);
-        back.setBounds(20, 300, 84, 32);
 
         origin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bang Sue Grand Station" }));
         origin.addActionListener(new java.awt.event.ActionListener() {
@@ -65,18 +61,12 @@ public class Station extends javax.swing.JFrame {
                 originActionPerformed(evt);
             }
         });
-        getContentPane().add(origin);
-        origin.setBounds(54, 90, 150, 40);
 
         time.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         time.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(time);
-        time.setBounds(140, 260, 150, 30);
 
         money.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        money.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(money);
-        money.setBounds(140, 220, 150, 30);
+        money.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 
         destination.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Taling Chan", "Bang Bamru", "Bang Son", "Chatuchak", "Wat Samian Nari", "Bang Khen", "Thung Song Hong", "Lak Si", "Kan Khaha", "Don Mueang", "Lak Hok", "Rangsit" }));
         destination.addActionListener(new java.awt.event.ActionListener() {
@@ -84,8 +74,6 @@ public class Station extends javax.swing.JFrame {
                 destinationActionPerformed(evt);
             }
         });
-        getContentPane().add(destination);
-        destination.setBounds(220, 90, 150, 40);
 
         people.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         people.addActionListener(new java.awt.event.ActionListener() {
@@ -93,8 +81,6 @@ public class Station extends javax.swing.JFrame {
                 peopleActionPerformed(evt);
             }
         });
-        getContentPane().add(people);
-        people.setBounds(140, 150, 150, 30);
 
         calcurate.setText("Calcurate");
         calcurate.addActionListener(new java.awt.event.ActionListener() {
@@ -102,8 +88,6 @@ public class Station extends javax.swing.JFrame {
                 calcurateActionPerformed(evt);
             }
         });
-        getContentPane().add(calcurate);
-        calcurate.setBounds(160, 190, 100, 23);
 
         next.setText("Next");
         next.addActionListener(new java.awt.event.ActionListener() {
@@ -111,8 +95,70 @@ public class Station extends javax.swing.JFrame {
                 nextActionPerformed(evt);
             }
         });
-        getContentPane().add(next);
-        next.setBounds(300, 300, 80, 30);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel1.setText("BATH");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(Station, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(origin, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(16, 16, 16)
+                        .addComponent(destination, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(140, 140, 140)
+                        .addComponent(people, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(140, 140, 140)
+                        .addComponent(time, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(196, 196, 196)
+                        .addComponent(next, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(160, 160, 160)
+                        .addComponent(calcurate, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(144, 144, 144)
+                        .addComponent(money, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(20, 20, 20))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(Station, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(origin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(destination, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addComponent(people, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(calcurate)
+                .addGap(11, 11, 11)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(money, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
+                .addComponent(time, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(next, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -137,62 +183,62 @@ public class Station extends javax.swing.JFrame {
         switch(destination.getSelectedItem().toString()){
             case "Taling Chan" : { 
                 int result = 35*pp ;
-                money.setText(String.valueOf(result)+" Bath") ;
+                money.setText(String.valueOf(result)) ;
                 time.setText("14 minute");
                 break ;}
             case "Bang Bamru" : { 
                 int result = 29*pp ;
-                money.setText(String.valueOf(result+" Bath")) ;
+                money.setText(String.valueOf(result)) ;
                 time.setText("10 Minute");
                 break ;}
             case "Bang Son" : { 
                 int result = 18*pp ;
-                money.setText(String.valueOf(result+" Bath")) ;
+                money.setText(String.valueOf(result)) ;
                 time.setText("3 Minute");
                 break ;}
             case "Chatuchak" : { 
                 int result = 16*pp ;
-                money.setText(String.valueOf(result+" Bath")) ;
+                money.setText(String.valueOf(result)) ;
                 time.setText("3 Minute");
                 break ;}
             case "Wat Samian Nari" : { 
                 int result = 19*pp ;
-                money.setText(String.valueOf(result+" Bath")) ;
+                money.setText(String.valueOf(result)) ;
                 time.setText("5 Minute");
                 break ;}
             case "Bang Khen" : { 
                 int result = 20*pp ;
-                money.setText(String.valueOf(result+" Bath")) ;
+                money.setText(String.valueOf(result)) ;
                 time.setText("7 Minute");
                 break ;}
             case "Thung Song Hong" : { 
                 int result = 23*pp ;
-                money.setText(String.valueOf(result+" Bath")) ;
+                money.setText(String.valueOf(result)) ;
                 time.setText("9 Minute");
                 break ;}
             case "Lak Si" : { 
                 int result = 27*pp ;
-                money.setText(String.valueOf(result+" Bath")) ;
+                money.setText(String.valueOf(result)) ;
                 time.setText("12 Minute");
                 break ;}
             case "Kan Khaha" : { 
                 int result = 30*pp ;
-                money.setText(String.valueOf(result+" Bath")) ;
+                money.setText(String.valueOf(result)) ;
                 time.setText("14 Minute");
                 break ;}
             case "Don Mueang" : { 
                 int result = 33*pp ;
-                money.setText(String.valueOf(result+" Bath")) ;
+                money.setText(String.valueOf(result)) ;
                 time.setText("16 Minute");
                 break ;}
             case "Lak Hok" : { 
                 int result = 42*pp ;
-                money.setText(String.valueOf(result+" Bath")) ;
+                money.setText(String.valueOf(result)) ;
                 time.setText("20 Minute");
                 break ;}
             case "Rangsit" : { 
                 int result = 42*pp ;
-                money.setText(String.valueOf(result+" Bath")) ;
+                money.setText(String.valueOf(result)) ;
                 time.setText("23 Minute");
                 break ;}
         }
@@ -261,6 +307,7 @@ public class Station extends javax.swing.JFrame {
     private javax.swing.JButton back;
     private javax.swing.JButton calcurate;
     private javax.swing.JComboBox<String> destination;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel money;
     private javax.swing.JButton next;
     private javax.swing.JComboBox<String> origin;

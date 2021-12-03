@@ -31,7 +31,6 @@ public class ConnectionDB {
         st = cd.createStatement();
         rs = st.executeQuery(sql);
         }catch(Exception e){rs=null;}
-        finally{ disconnect(); }
         return rs ;
     }   
 }

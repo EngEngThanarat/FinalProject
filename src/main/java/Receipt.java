@@ -2,7 +2,6 @@
 import java.sql.ResultSet;
 import java.util.*;
 import javax.swing.JOptionPane;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -40,6 +39,8 @@ public class Receipt extends javax.swing.JFrame {
         receiptnum = new javax.swing.JLabel();
         back = new javax.swing.JButton();
         pay = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(420, 320));
@@ -56,6 +57,7 @@ public class Receipt extends javax.swing.JFrame {
         Origin.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Origin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("TO");
 
         paitang.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -87,6 +89,12 @@ public class Receipt extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setText("Bath");
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setText("Bath");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -114,17 +122,21 @@ public class Receipt extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(57, 57, 57)
-                        .addComponent(getMoney, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(58, 58, 58)
-                        .addComponent(remaining, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(getMoney, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2)
+                        .addGap(121, 121, 121)
+                        .addComponent(remaining, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(124, 124, 124)
                         .addComponent(receiptnum, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(pp, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(122, 122, 122))
+                .addGap(123, 123, 123))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,12 +148,14 @@ public class Receipt extends javax.swing.JFrame {
                     .addComponent(Origin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1)
                     .addComponent(paitang, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+                .addGap(25, 25, 25)
                 .addComponent(pp, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(getMoney, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(remaining, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE))
+                    .addComponent(remaining, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(receiptnum, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -190,8 +204,36 @@ public class Receipt extends javax.swing.JFrame {
         try{ ConnectionDB db = new ConnectionDB();
              String sql = "INSERT INTO RECEIPT VALUES('"+rc+"');";
              db.execute(sql);
-             JOptionPane.showMessageDialog(null, sql);
         }catch(Exception e){}
+        //ac_balance Update
+        
+        double temp=0;
+        try{ ConnectionDB db = new ConnectionDB();
+             String balance = String.format("SELECT ac_balance FROM Account WHERE ac_id = '%s' ",ac_id);
+             ResultSet rs = db.get_resultset(balance);
+             rs.next();
+            
+             String st = rs.getString(1);
+             double gmn = Double.parseDouble(getMoney.getText());
+             double rm = Double.parseDouble(st);
+            
+             
+             temp = rm-gmn ;
+             remaining.setText(String.valueOf(temp));
+             
+             db.disconnect();
+        }catch(Exception e){ JOptionPane.showMessageDialog(this,e);}
+        
+        String sql = String.format("UPDATE Account SET ac_balance = '%d' WHERE ac_id = '%s';",temp,ac_id) ;
+        boolean b;
+        try{ ConnectionDB db = new ConnectionDB();
+            JOptionPane.showMessageDialog(this,sql);
+            db.execute(sql);
+            b = true ;
+        }catch(Exception e){b = false ;}
+        
+        if(b){JOptionPane.showMessageDialog(this,"You Complete");
+        }else JOptionPane.showMessageDialog(this,"You Cannot Complete ");
     }//GEN-LAST:event_formWindowOpened
 
     /**
@@ -229,17 +271,21 @@ public class Receipt extends javax.swing.JFrame {
             }
         });
     }
-
+    
+    
     private String a = Station.temp5 ;
     private String b = Station.temp6 ;
     private String c = Station.temp7 ;
     private String d = Station.temp8 ;
-    
+    private String ac_id = Login.temp2 ;
+            
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Origin;
     private javax.swing.JButton back;
     private javax.swing.JLabel getMoney;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel paitang;
     private javax.swing.JButton pay;
     private javax.swing.JLabel pp;

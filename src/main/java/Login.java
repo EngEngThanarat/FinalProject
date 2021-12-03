@@ -93,7 +93,10 @@ public class Login extends javax.swing.JDialog {
     private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_passwordActionPerformed
-
+    
+    private String temp1 = null;
+    public static String temp2 = null ;
+    
     private void EnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnterActionPerformed
         String id = username.getText();
         char[] temp = password.getPassword();
@@ -105,6 +108,10 @@ public class Login extends javax.swing.JDialog {
             rs.next();
             a=true;
         }catch(Exception e){a=false;}
+        
+        temp1 = String.valueOf(username.getText());
+        temp2 = temp1 ;
+        
         if(a){
                 JOptionPane.showMessageDialog(this,"You are Complete");
                 this.dispose();

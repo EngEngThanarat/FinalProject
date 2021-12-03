@@ -222,6 +222,7 @@ public class Register extends javax.swing.JDialog {
             db.execute(sql);
             a = true ;
         }catch(Exception e){a = false ;}
+        
         if(a){JOptionPane.showMessageDialog(this,"You Register Complete");
         }else JOptionPane.showMessageDialog(this,"You Cannot Register ");
     }//GEN-LAST:event_RegisterActionPerformed
