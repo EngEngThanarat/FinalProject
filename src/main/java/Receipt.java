@@ -36,11 +36,10 @@ public class Receipt extends javax.swing.JFrame {
         pp = new javax.swing.JLabel();
         getMoney = new javax.swing.JLabel();
         remaining = new javax.swing.JLabel();
-        receiptnum = new javax.swing.JLabel();
         back = new javax.swing.JButton();
-        pay = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        pay = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(420, 320));
@@ -72,20 +71,10 @@ public class Receipt extends javax.swing.JFrame {
         remaining.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         remaining.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
-        receiptnum.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        receiptnum.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-
         back.setText("Back");
         back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backActionPerformed(evt);
-            }
-        });
-
-        pay.setText("Pay");
-        pay.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                payActionPerformed(evt);
             }
         });
 
@@ -94,6 +83,13 @@ public class Receipt extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Bath");
+
+        pay.setText("Pay");
+        pay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                payActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -107,19 +103,22 @@ public class Receipt extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(pay, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(Origin, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28)
                         .addComponent(jLabel1)
                         .addGap(31, 31, 31)
                         .addComponent(paitang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(8, 8, 8)))
-                .addContainerGap())
+                        .addGap(10, 10, 10))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(pay, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(25, 25, 25))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(125, 125, 125)
+                        .addComponent(pp, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(57, 57, 57)
                         .addComponent(getMoney, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -128,40 +127,31 @@ public class Receipt extends javax.swing.JFrame {
                         .addGap(121, 121, 121)
                         .addComponent(remaining, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(124, 124, 124)
-                        .addComponent(receiptnum, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel3)))
                 .addContainerGap(40, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(pp, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(123, 123, 123))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(32, 32, 32)
                 .addComponent(receipt, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(Origin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(paitang, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
-                    .addComponent(paitang, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE))
-                .addGap(25, 25, 25)
+                    .addComponent(Origin, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
                 .addComponent(pp, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(getMoney, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(remaining, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(receiptnum, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(getMoney, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(remaining, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(back, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE))
+                    .addComponent(back, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                    .addComponent(pay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -172,42 +162,15 @@ public class Receipt extends javax.swing.JFrame {
         Station st = new Station();
         st.setVisible(true);
     }//GEN-LAST:event_backActionPerformed
-
-    private void payActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payActionPerformed
-        this.dispose();
-        Thank tk = new Thank();
-        tk.setVisible(true);
-    }//GEN-LAST:event_payActionPerformed
-
+    double temp=0;
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         Origin.setText(Station.temp5);
         paitang.setText(Station.temp6);
         pp.setText(Station.temp7+" Person");
         getMoney.setText(Station.temp8);
         
-        boolean a ;
-        String rc = "";
-        try{ ConnectionDB db = new ConnectionDB();
-             while(true){
-             Random rd = new Random();
-             rc = String.valueOf(rd.nextInt(500000));
-             String sql = "select ID_RECRIPT FROM receipt WHERE ID_RECRIPT = '"+rc+"' ;";
-             ResultSet rs = db.get_resultset(sql);
-             rs.next();
-             a = true ;
-             
-             db.disconnect();
-            }
-        }catch(Exception e){ receiptnum.setText("ID RECEIPT "+rc);}
-        
-        try{ ConnectionDB db = new ConnectionDB();
-             String sql = "INSERT INTO receipt VALUES('"+rc+"');";
-             db.execute(sql);
-        }catch(Exception e){}
-        //ac_balance Update
-        
-        double temp=0;
-        try{ ConnectionDB db = new ConnectionDB();
+        if(PayMoney.bl){
+             try{ ConnectionDB db = new ConnectionDB();
              String balance = String.format("SELECT ac_balance FROM account WHERE ac_id = '%s' ",ac_id);
              ResultSet rs = db.get_resultset(balance);
              rs.next();
@@ -222,7 +185,11 @@ public class Receipt extends javax.swing.JFrame {
              
              db.disconnect();
         }catch(Exception e){ JOptionPane.showMessageDialog(this,e);}
-        
+        }else {remaining.setText("0");}
+    }//GEN-LAST:event_formWindowOpened
+
+    private void payActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payActionPerformed
+        if(PayMoney.bl){
         String sql = String.format("UPDATE account SET ac_balance = '%f' WHERE ac_id = '%s';",temp,ac_id) ;
         boolean b;
         try{ ConnectionDB db = new ConnectionDB();
@@ -231,7 +198,12 @@ public class Receipt extends javax.swing.JFrame {
         
         if(b){JOptionPane.showMessageDialog(this,"You Complete");
         }else JOptionPane.showMessageDialog(this,"You Cannot Complete ");
-    }//GEN-LAST:event_formWindowOpened
+        }//end if
+        
+        this.dispose();
+        Thank tk = new Thank();
+        tk.setVisible(true);
+    }//GEN-LAST:event_payActionPerformed
 
     /**
      * @param args the command line arguments
@@ -287,7 +259,6 @@ public class Receipt extends javax.swing.JFrame {
     private javax.swing.JButton pay;
     private javax.swing.JLabel pp;
     private javax.swing.JLabel receipt;
-    private javax.swing.JLabel receiptnum;
     private javax.swing.JLabel remaining;
     // End of variables declaration//GEN-END:variables
 }

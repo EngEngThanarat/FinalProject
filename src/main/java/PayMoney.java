@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
+    
 /**
  *
  * @author user
@@ -12,6 +12,8 @@ public class PayMoney extends javax.swing.JFrame {
     /**
      * Creates new form PayMoney
      */
+    public static boolean bl ;
+    
     public PayMoney() {
         initComponents();
     }
@@ -90,17 +92,20 @@ public class PayMoney extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cardActionPerformed
+        bl = true ;
         Login lg = new Login(null,false);
         lg.setVisible(true);
     }//GEN-LAST:event_cardActionPerformed
 
     private void MoneyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MoneyActionPerformed
+        bl = false ;
         this.dispose();
         Station stt = new Station();
         stt.setVisible(true);
     }//GEN-LAST:event_MoneyActionPerformed
 
     private void RegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterActionPerformed
+        
         Register rg = new Register(null,false);
         rg.setVisible(true);
     }//GEN-LAST:event_RegisterActionPerformed
