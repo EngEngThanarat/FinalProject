@@ -101,11 +101,12 @@ public class Login extends javax.swing.JDialog {
         String id = username.getText();
         char[] temp = password.getPassword();
         String pw = String.valueOf(temp);
-        String sql = String.format("SELECT * FROM Account WHERE ac_id = '%s' AND ac_password = '%s'",id,pw) ;
+        String sql = String.format("SELECT * FROM account WHERE ac_id = '%s' AND ac_password = '%s'",id,pw) ;
         boolean a ;
         try{ ConnectionDB cdb = new ConnectionDB();
             ResultSet rs = cdb.get_resultset(sql); 
             rs.next();
+            String s = rs.getString(1); //count table
             a=true;
         }catch(Exception e){a=false;}
         

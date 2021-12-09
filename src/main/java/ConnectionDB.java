@@ -5,10 +5,12 @@ public class ConnectionDB {
     private Connection cd = null ;
     private Statement st = null ;
     private ResultSet rs = null ;
-    private String url = "jdbc:sqlite:C:\\Users\\user\\OneDrive\\Documents\\NetBeansProjects\\FinalProject\\DB.db" ;
+    private String url = "jdbc:mysql://localhost:3306/bkk_metro" ;
+    private String username = "root";
+    private String password = "";
     
     public void connect()throws SQLException {
-        try{ cd = DriverManager.getConnection(url);
+        try{ cd = DriverManager.getConnection(url,username,password);
         }catch(Exception e){ JOptionPane.showMessageDialog(null,"Error"+e);}
     }
     

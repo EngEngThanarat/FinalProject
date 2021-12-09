@@ -215,7 +215,7 @@ public class Register extends javax.swing.JDialog {
         double money = Integer.parseInt(Cost.getText());
         String stt = Status.getText();
         
-        String sql = String.format("INSERT INTO Account VALUES('%s','%s','%s','%s','%f','%s',null);",id,pw,firstname,lastname,money,stt) ;
+        String sql = String.format("INSERT INTO account VALUES('%s','%s','%s','%s','%f','%s');",id,pw,firstname,lastname,money,stt) ;
         //String sql = String.format("INSERT INTO Account(ac_id , ac_password) VALUES('%s','%s');",id,pw) ;
         boolean a;
         try{ ConnectionDB db = new ConnectionDB();

@@ -188,28 +188,27 @@ public class Receipt extends javax.swing.JFrame {
         boolean a ;
         String rc = "";
         try{ ConnectionDB db = new ConnectionDB();
-            while(true){
+             while(true){
              Random rd = new Random();
              rc = String.valueOf(rd.nextInt(500000));
-             String sql = "select ID_RECEIPT FROM RECEIPT WHERE ID_RECEIPT = '"+rc+"' ;";
+             String sql = "select ID_RECRIPT FROM receipt WHERE ID_RECRIPT = '"+rc+"' ;";
              ResultSet rs = db.get_resultset(sql);
              rs.next();
              a = true ;
              
-             rc = String.valueOf(rd.nextInt(500000));
              db.disconnect();
             }
         }catch(Exception e){ receiptnum.setText("ID RECEIPT "+rc);}
         
         try{ ConnectionDB db = new ConnectionDB();
-             String sql = "INSERT INTO RECEIPT VALUES('"+rc+"');";
+             String sql = "INSERT INTO receipt VALUES('"+rc+"');";
              db.execute(sql);
         }catch(Exception e){}
         //ac_balance Update
         
         double temp=0;
         try{ ConnectionDB db = new ConnectionDB();
-             String balance = String.format("SELECT ac_balance FROM Account WHERE ac_id = '%s' ",ac_id);
+             String balance = String.format("SELECT ac_balance FROM account WHERE ac_id = '%s' ",ac_id);
              ResultSet rs = db.get_resultset(balance);
              rs.next();
             
@@ -224,12 +223,10 @@ public class Receipt extends javax.swing.JFrame {
              db.disconnect();
         }catch(Exception e){ JOptionPane.showMessageDialog(this,e);}
         
-        String sql = String.format("UPDATE Account SET ac_balance = '%d' WHERE ac_id = '%s';",temp,ac_id) ;
+        String sql = String.format("UPDATE account SET ac_balance = '%d' WHERE ac_id = '%s';",temp,ac_id) ;
         boolean b;
         try{ ConnectionDB db = new ConnectionDB();
-            JOptionPane.showMessageDialog(this,sql);
-            db.execute(sql);
-            b = true ;
+            b = db.execute(sql) ;
         }catch(Exception e){b = false ;}
         
         if(b){JOptionPane.showMessageDialog(this,"You Complete");

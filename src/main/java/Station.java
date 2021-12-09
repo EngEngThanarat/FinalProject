@@ -39,6 +39,7 @@ public class Station extends javax.swing.JFrame {
         calcurate = new javax.swing.JButton();
         next = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        Deposit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(430, 400));
@@ -55,6 +56,7 @@ public class Station extends javax.swing.JFrame {
             }
         });
 
+        origin.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         origin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bang Sue Grand Station" }));
         origin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,6 +70,7 @@ public class Station extends javax.swing.JFrame {
         money.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         money.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 
+        destination.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         destination.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Taling Chan", "Bang Bamru", "Bang Son", "Chatuchak", "Wat Samian Nari", "Bang Khen", "Thung Song Hong", "Lak Si", "Kan Khaha", "Don Mueang", "Lak Hok", "Rangsit" }));
         destination.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,6 +85,7 @@ public class Station extends javax.swing.JFrame {
             }
         });
 
+        calcurate.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         calcurate.setText("Calcurate");
         calcurate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,6 +103,13 @@ public class Station extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel1.setText("BATH");
+
+        Deposit.setText("Deposit");
+        Deposit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DepositActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -123,7 +134,9 @@ public class Station extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(196, 196, 196)
+                        .addGap(57, 57, 57)
+                        .addComponent(Deposit, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(52, 52, 52)
                         .addComponent(next, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(160, 160, 160)
@@ -154,10 +167,14 @@ public class Station extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(6, 6, 6)
                 .addComponent(time, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(next, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(next, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(Deposit, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(5, 5, 5))))
         );
 
         pack();
@@ -267,6 +284,12 @@ public class Station extends javax.swing.JFrame {
         rc.setVisible(true);
     }//GEN-LAST:event_nextActionPerformed
 
+    private void DepositActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DepositActionPerformed
+        this.dispose();
+        Deposit ds = new Deposit();
+        ds.setVisible(true);
+    }//GEN-LAST:event_DepositActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -303,6 +326,7 @@ public class Station extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Deposit;
     private javax.swing.JLabel Station;
     private javax.swing.JButton back;
     private javax.swing.JButton calcurate;
