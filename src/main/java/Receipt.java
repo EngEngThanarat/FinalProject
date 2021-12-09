@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 public class Receipt extends javax.swing.JFrame {
 
     /**
-     * Creates new form Recript
+     * Creates new form receipt
      */
     public Receipt() {
         initComponents();
@@ -223,7 +223,7 @@ public class Receipt extends javax.swing.JFrame {
              db.disconnect();
         }catch(Exception e){ JOptionPane.showMessageDialog(this,e);}
         
-        String sql = String.format("UPDATE account SET ac_balance = '%d' WHERE ac_id = '%s';",temp,ac_id) ;
+        String sql = String.format("UPDATE account SET ac_balance = '%f' WHERE ac_id = '%s';",temp,ac_id) ;
         boolean b;
         try{ ConnectionDB db = new ConnectionDB();
             b = db.execute(sql) ;

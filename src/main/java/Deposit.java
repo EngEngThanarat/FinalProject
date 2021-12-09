@@ -37,6 +37,7 @@ public class Deposit extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -77,6 +78,13 @@ public class Deposit extends javax.swing.JFrame {
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Insert money");
 
+        jButton1.setText("Confirm");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -85,11 +93,14 @@ public class Deposit extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(Back, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(Back, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(106, 106, 106)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -125,7 +136,9 @@ public class Deposit extends javax.swing.JFrame {
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(show, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(Back)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Back)
+                    .addComponent(jButton1))
                 .addContainerGap())
         );
 
@@ -141,27 +154,27 @@ public class Deposit extends javax.swing.JFrame {
         Station st = new Station();
         st.setVisible(true);
     }//GEN-LAST:event_BackActionPerformed
-
+    double temp=0;
     private void DepositActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DepositActionPerformed
-        String ct = cost.getText();
-        double temp=0;
         try{ ConnectionDB db = new ConnectionDB();
              String balance = String.format("SELECT ac_balance FROM account WHERE ac_id = '%s' ",ac_id);
              ResultSet rs = db.get_resultset(balance);
              rs.next();
             
              String st = rs.getString(1);
-             double gmn = Double.parseDouble(cost.getText());
+             double ct = Double.parseDouble(cost.getText());
              double rm = Double.parseDouble(st);
             
              
-             temp = rm+gmn ;
+             temp = rm+ct ;
              show.setText(String.valueOf(temp));
              
              db.disconnect();
         }catch(Exception e){ JOptionPane.showMessageDialog(this,e);}
+    }//GEN-LAST:event_DepositActionPerformed
         
-        String sql = String.format("UPDATE account SET ac_balance = '%d' WHERE ac_id = '%s';",temp,ac_id) ;
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String sql = String.format("UPDATE account SET ac_balance = '%f' WHERE ac_id = '%s';",temp,ac_id) ;
         boolean b;
         try{ ConnectionDB db = new ConnectionDB();
             b = db.execute(sql);
@@ -170,7 +183,10 @@ public class Deposit extends javax.swing.JFrame {
         if(b){JOptionPane.showMessageDialog(this,"You Complete");
         }else JOptionPane.showMessageDialog(this,"You Cannot Complete ");
         
-    }//GEN-LAST:event_DepositActionPerformed
+        this.dispose();
+        Station st = new Station();
+        st.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -212,6 +228,7 @@ public class Deposit extends javax.swing.JFrame {
     private javax.swing.JButton Back;
     private javax.swing.JButton Deposit;
     private javax.swing.JTextField cost;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

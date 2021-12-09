@@ -11,12 +11,12 @@ public class ConnectionDB {
     
     public void connect()throws SQLException {
         try{ cd = DriverManager.getConnection(url,username,password);
-        }catch(Exception e){ JOptionPane.showMessageDialog(null,"Error"+e);}
+        }catch(SQLException e){ JOptionPane.showMessageDialog(null,"Error"+e);}
     }
     
     public void disconnect()throws SQLException{
         try{ cd.close();
-        }catch(Exception e){ JOptionPane.showMessageDialog(null,"Close"+e);}
+        }catch(SQLException e){ JOptionPane.showMessageDialog(null,"Close"+e);}
     }
     
     public boolean execute(String sql)throws SQLException {
@@ -24,7 +24,7 @@ public class ConnectionDB {
             st = cd.createStatement();
             st.execute(sql);
             return true ;
-        }catch(Exception e){ return false;}
+        }catch(SQLException e){ return false;}
         finally{ disconnect(); }
     }
     
@@ -32,7 +32,7 @@ public class ConnectionDB {
         try{ connect();
         st = cd.createStatement();
         rs = st.executeQuery(sql);
-        }catch(Exception e){rs=null;}
+        }catch(SQLException e){rs=null;}
         return rs ;
     }   
 }
