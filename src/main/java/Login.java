@@ -120,7 +120,6 @@ public class Login extends javax.swing.JDialog {
                 stt.setVisible(true);
             }else JOptionPane.showMessageDialog(this,"No have Account");
         
-        
     }//GEN-LAST:event_EnterActionPerformed
 
     private void CloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseActionPerformed

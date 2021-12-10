@@ -86,7 +86,7 @@ public class Station extends javax.swing.JFrame {
         });
 
         calcurate.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        calcurate.setText("Calcurate");
+        calcurate.setText("Calculate");
         calcurate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 calcurateActionPerformed(evt);
@@ -123,7 +123,7 @@ public class Station extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(54, 54, 54)
                         .addComponent(origin, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(16, 16, 16)
+                        .addGap(18, 18, 18)
                         .addComponent(destination, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(140, 140, 140)
@@ -154,7 +154,7 @@ public class Station extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addComponent(Station, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(origin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(destination, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
@@ -200,63 +200,63 @@ public class Station extends javax.swing.JFrame {
         switch(destination.getSelectedItem().toString()){
             case "Taling Chan" : { 
                 int result = 35*pp ;
-                money.setText(String.valueOf(result)) ;
-                time.setText("14 minute");
+                money.setText(String.valueOf(result));
+                time.setText("14 Minutes");
                 break ;}
             case "Bang Bamru" : { 
                 int result = 29*pp ;
                 money.setText(String.valueOf(result)) ;
-                time.setText("10 Minute");
+                time.setText("10 Minutes");
                 break ;}
             case "Bang Son" : { 
                 int result = 18*pp ;
                 money.setText(String.valueOf(result)) ;
-                time.setText("3 Minute");
+                time.setText("3 Minutes");
                 break ;}
             case "Chatuchak" : { 
                 int result = 16*pp ;
                 money.setText(String.valueOf(result)) ;
-                time.setText("3 Minute");
+                time.setText("3 Minutes");
                 break ;}
             case "Wat Samian Nari" : { 
                 int result = 19*pp ;
                 money.setText(String.valueOf(result)) ;
-                time.setText("5 Minute");
+                time.setText("5 Minutes");
                 break ;}
             case "Bang Khen" : { 
                 int result = 20*pp ;
                 money.setText(String.valueOf(result)) ;
-                time.setText("7 Minute");
+                time.setText("7 Minutes");
                 break ;}
             case "Thung Song Hong" : { 
                 int result = 23*pp ;
                 money.setText(String.valueOf(result)) ;
-                time.setText("9 Minute");
+                time.setText("9 Minutes");
                 break ;}
             case "Lak Si" : { 
                 int result = 27*pp ;
                 money.setText(String.valueOf(result)) ;
-                time.setText("12 Minute");
+                time.setText("12 Minutes");
                 break ;}
             case "Kan Khaha" : { 
                 int result = 30*pp ;
                 money.setText(String.valueOf(result)) ;
-                time.setText("14 Minute");
+                time.setText("14 Minutes");
                 break ;}
             case "Don Mueang" : { 
                 int result = 33*pp ;
                 money.setText(String.valueOf(result)) ;
-                time.setText("16 Minute");
+                time.setText("16 Minutes");
                 break ;}
             case "Lak Hok" : { 
                 int result = 42*pp ;
                 money.setText(String.valueOf(result)) ;
-                time.setText("20 Minute");
+                time.setText("20 Minutes");
                 break ;}
             case "Rangsit" : { 
                 int result = 42*pp ;
                 money.setText(String.valueOf(result)) ;
-                time.setText("23 Minute");
+                time.setText("23 Minutes");
                 break ;}
         }
     }//GEN-LAST:event_calcurateActionPerformed

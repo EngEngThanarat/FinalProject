@@ -93,19 +93,18 @@ public class PayMoney extends javax.swing.JFrame {
 
     private void cardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cardActionPerformed
         bl = true ;
-        Login lg = new Login(null,false);
+        Login lg = new Login(null,false);//create object
         lg.setVisible(true);
     }//GEN-LAST:event_cardActionPerformed
 
     private void MoneyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MoneyActionPerformed
         bl = false ;
-        this.dispose();
-        Station stt = new Station();
+        this.dispose(); //close PayMoney
+        Station stt = new Station(); //create object
         stt.setVisible(true);
     }//GEN-LAST:event_MoneyActionPerformed
 
     private void RegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterActionPerformed
-        
         Register rg = new Register(null,false);
         rg.setVisible(true);
     }//GEN-LAST:event_RegisterActionPerformed

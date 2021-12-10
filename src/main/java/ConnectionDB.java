@@ -26,7 +26,7 @@ public class ConnectionDB {
             return true ;
         }catch(SQLException e){ return false;}
         finally{ disconnect(); }
-    }
+    } 
     
     public ResultSet get_resultset(String sql)throws SQLException{
         try{ connect();
@@ -34,5 +34,5 @@ public class ConnectionDB {
         rs = st.executeQuery(sql);
         }catch(SQLException e){rs=null;}
         return rs ;
-    }   
+    } 
 }
