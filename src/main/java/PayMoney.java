@@ -95,7 +95,7 @@ public class PayMoney extends javax.swing.JFrame {
         bl = true ;
         this.dispose();
         Login lg = new Login(null,false);//create object
-        lg.setVisible(true);
+        lg.setVisible(true);//show page
     }//GEN-LAST:event_cardActionPerformed
 
     private void MoneyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MoneyActionPerformed

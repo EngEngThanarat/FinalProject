@@ -172,7 +172,7 @@ public class Receipt extends javax.swing.JFrame {
              try{ ConnectionDB db = new ConnectionDB();
              String balance = String.format("SELECT ac_balance FROM account WHERE ac_id = '%s' ",ac_id);
              ResultSet rs = db.get_resultset(balance);
-             rs.next();
+             rs.next(); //check your have database
             
              String st = rs.getString(1);
              double gmn = Double.parseDouble(getMoney.getText());
