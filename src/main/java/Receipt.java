@@ -240,11 +240,6 @@ public class Receipt extends javax.swing.JFrame {
         });
     }
     
-    
-    private String a = Station.temp5 ;
-    private String b = Station.temp6 ;
-    private String c = Station.temp7 ;
-    private String d = Station.temp8 ;
     private String ac_id = Login.temp2 ;
             
     // Variables declaration - do not modify//GEN-BEGIN:variables

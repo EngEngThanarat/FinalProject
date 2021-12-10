@@ -12,27 +12,27 @@ public class ConnectionDB {
     public void connect()throws SQLException {
         try{ cd = DriverManager.getConnection(url,username,password);
         }catch(SQLException e){ JOptionPane.showMessageDialog(null,"Error"+e);}
-    }
+    }//open database
     
     public void disconnect()throws SQLException{
         try{ cd.close();
         }catch(SQLException e){ JOptionPane.showMessageDialog(null,"Close"+e);}
-    }
+    }//close database
     
     public boolean execute(String sql)throws SQLException {
         try{ connect();
-            st = cd.createStatement();
-            st.execute(sql);
+            st = cd.createStatement(); //create new database
+            st.execute(sql);//Actions on the database
             return true ;
         }catch(SQLException e){ return false;}
         finally{ disconnect(); }
-    } 
+    }
     
     public ResultSet get_resultset(String sql)throws SQLException{
         try{ connect();
         st = cd.createStatement();
-        rs = st.executeQuery(sql);
+        rs = st.executeQuery(sql); 
         }catch(SQLException e){rs=null;}
         return rs ;
-    } 
+    } //call the database to keep
 }
