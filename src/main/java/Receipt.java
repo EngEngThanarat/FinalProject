@@ -115,20 +115,19 @@ public class Receipt extends javax.swing.JFrame {
                         .addComponent(pay, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(25, 25, 25))))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(125, 125, 125)
-                        .addComponent(pp, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addComponent(getMoney, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2)
-                        .addGap(121, 121, 121)
-                        .addComponent(remaining, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3)))
+                .addGap(57, 57, 57)
+                .addComponent(getMoney, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addGap(121, 121, 121)
+                .addComponent(remaining, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
                 .addContainerGap(40, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pp, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(118, 118, 118))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,7 +172,7 @@ public class Receipt extends javax.swing.JFrame {
              try{ ConnectionDB db = new ConnectionDB();
              String balance = String.format("SELECT ac_balance FROM account WHERE ac_id = '%s' ",ac_id);
              ResultSet rs = db.get_resultset(balance);
-             rs.next();
+             rs.next(); //check your have database
             
              String st = rs.getString(1);
              double gmn = Double.parseDouble(getMoney.getText());
@@ -193,7 +192,7 @@ public class Receipt extends javax.swing.JFrame {
         String sql = String.format("UPDATE account SET ac_balance = '%f' WHERE ac_id = '%s';",temp,ac_id) ;
         boolean b;
         try{ ConnectionDB db = new ConnectionDB();
-            b = db.execute(sql) ;
+            b = db.execute(sql); 
         }catch(Exception e){b = false ;}
         
         if(b){JOptionPane.showMessageDialog(this,"You Complete");
@@ -241,11 +240,6 @@ public class Receipt extends javax.swing.JFrame {
         });
     }
     
-    
-    private String a = Station.temp5 ;
-    private String b = Station.temp6 ;
-    private String c = Station.temp7 ;
-    private String d = Station.temp8 ;
     private String ac_id = Login.temp2 ;
             
     // Variables declaration - do not modify//GEN-BEGIN:variables
